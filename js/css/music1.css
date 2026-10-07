@@ -1,0 +1,525 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+
+    background:
+        radial-gradient(
+            circle at top right,
+            #123b43,
+            transparent 35%
+        ),
+        #050914;
+
+    color: white;
+}
+
+
+/* NAVBAR */
+
+header {
+    position: sticky;
+    top: 0;
+
+    z-index: 100;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px 8%;
+
+    background: rgba(3, 8, 20, 0.95);
+
+    backdrop-filter: blur(15px);
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #00ff99;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #00ff99;
+}
+
+
+/* HERO */
+
+.hero {
+    min-height: 600px;
+
+    padding: 80px 10%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.small-title {
+    color: #00ff99;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: 65px;
+
+    line-height: 1.1;
+
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    color: #00ff99;
+}
+
+.hero p {
+    color: #aeb8c5;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+}
+
+.hero button {
+    margin-top: 30px;
+
+    padding: 15px 30px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background: #00ff99;
+
+    color: #00130b;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.hero button:hover {
+    transform: scale(1.08);
+
+    box-shadow:
+        0 0 25px #00ff99;
+}
+
+
+/* MUSIC ANIMATION */
+
+.music-animation {
+    width: 280px;
+    height: 280px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    font-size: 100px;
+
+    border: 3px solid #00ff99;
+
+    box-shadow:
+        0 0 25px #00ff99,
+        inset 0 0 30px #00ff99;
+
+    animation: musicRotate 8s linear infinite;
+}
+
+@keyframes musicRotate {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+/* SEARCH */
+
+.search-section {
+    text-align: center;
+
+    padding: 60px 20px;
+}
+
+.search-section h2 {
+    font-size: 32px;
+
+    margin-bottom: 25px;
+}
+
+.search-box {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+}
+
+.search-box input {
+    width: 550px;
+
+    padding: 17px 20px;
+
+    border-radius: 30px;
+
+    border: 1px solid #00ff99;
+
+    outline: none;
+
+    background: #101827;
+
+    color: white;
+
+    font-size: 16px;
+}
+
+.search-box button {
+    padding: 15px 25px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background: #00ff99;
+
+    cursor: pointer;
+
+    font-weight: bold;
+}
+
+#status {
+    margin-top: 20px;
+
+    color: #00ff99;
+}
+
+
+/* MUSIC SECTION */
+
+.music-section {
+    padding: 40px 8%;
+}
+
+.music-section h2 {
+    margin-bottom: 30px;
+
+    font-size: 32px;
+}
+
+.music-container {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(240px, 1fr));
+
+    gap: 25px;
+}
+
+
+/* MUSIC CARD */
+
+.music-card {
+    background: #101827;
+
+    border: 1px solid #1d3540;
+
+    border-radius: 20px;
+
+    padding: 18px;
+
+    transition: 0.4s;
+}
+
+.music-card:hover {
+    transform: translateY(-8px);
+
+    border-color: #00ff99;
+
+    box-shadow:
+        0 15px 35px rgba(0, 255, 153, 0.15);
+}
+
+.album-image {
+    width: 100%;
+
+    height: 230px;
+
+    object-fit: cover;
+
+    border-radius: 15px;
+
+    margin-bottom: 15px;
+}
+
+.music-card h3 {
+    margin-bottom: 8px;
+}
+
+.artist {
+    color: #8e9aaa;
+
+    margin-bottom: 15px;
+}
+
+.genre {
+    color: #00ff99;
+
+    font-size: 13px;
+
+    margin-bottom: 15px;
+}
+
+
+/* AUDIO */
+
+audio {
+    width: 100%;
+
+    margin-bottom: 15px;
+}
+
+
+/* CARD BUTTONS */
+
+.card-buttons {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+.price {
+    color: #00ff99;
+
+    font-size: 20px;
+
+    font-weight: bold;
+}
+
+.add-button {
+    padding: 10px 15px;
+
+    border: none;
+
+    border-radius: 20px;
+
+    background: #00ff99;
+
+    cursor: pointer;
+
+    font-weight: bold;
+}
+
+.store-button {
+    display: block;
+
+    margin-top: 12px;
+
+    text-align: center;
+
+    padding: 10px;
+
+    border-radius: 15px;
+
+    background: #182637;
+
+    color: white;
+
+    text-decoration: none;
+}
+
+
+/* CART */
+
+.cart-section {
+    margin: 60px 8%;
+
+    padding: 35px;
+
+    background: #101827;
+
+    border-radius: 20px;
+
+    border: 1px solid #1d3540;
+}
+
+.cart-section h2 {
+    margin-bottom: 25px;
+}
+
+.cart-item {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 15px;
+
+    border-bottom: 1px solid #293544;
+}
+
+.remove-button {
+    border: none;
+
+    background: #ff3d61;
+
+    color: white;
+
+    padding: 7px 10px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+}
+
+.cart-section h3 {
+    margin-top: 25px;
+
+    font-size: 22px;
+}
+
+.checkout {
+    margin-top: 20px;
+
+    padding: 14px 30px;
+
+    border: none;
+
+    border-radius: 25px;
+
+    background: #00ff99;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+/* MESSAGE */
+
+.message {
+    text-align: center;
+
+    color: #8793a2;
+
+    grid-column: 1 / -1;
+
+    padding: 50px;
+}
+
+
+/* FOOTER */
+
+footer {
+    margin-top: 70px;
+
+    padding: 50px;
+
+    text-align: center;
+
+    background: #02050d;
+
+    color: #8793a2;
+}
+
+footer h2 {
+    color: #00ff99;
+
+    margin-bottom: 10px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    header {
+        flex-direction: column;
+
+        gap: 20px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    .hero {
+        flex-direction: column;
+
+        text-align: center;
+
+        gap: 60px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .music-animation {
+        width: 200px;
+        height: 200px;
+
+        font-size: 70px;
+    }
+
+    .search-box {
+        flex-direction: column;
+
+        align-items: center;
+    }
+
+    .search-box input {
+        width: 90%;
+    }
+
+}

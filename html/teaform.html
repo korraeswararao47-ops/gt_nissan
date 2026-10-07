@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Registration Form</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: white;
+            padding: 30px;
+        }
+
+        .container {
+            width: 400px;
+            margin: auto;
+            background: white;
+            color: black;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px black;
+        }
+
+        h2 {
+            text-align: center;
+            color: #203a43;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .submit {
+            width: 100%;
+            background: #2196f3;
+            color: white;
+        }
+
+        .edit {
+            background: orange;
+            color: white;
+        }
+
+        .delete {
+            background: red;
+            color: white;
+        }
+
+        #users {
+            margin-top: 30px;
+        }
+
+        .user {
+            background: white;
+            color: black;
+            padding: 15px;
+            margin: 10px auto;
+            max-width: 500px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>Registration Form</h2>
+
+        <form id="registrationForm">
+
+            <input type="text" id="name"
+                   placeholder="Enter Name" required>
+
+            <input type="email" id="email"
+                   placeholder="Enter Email" required>
+
+            <input type="tel" id="phone"
+                   placeholder="Enter Phone" required>
+
+            <input type="text" id="course"
+                   placeholder="Enter Course" required>
+
+            <button type="submit" class="submit">
+                Submit
+            </button>
+
+        </form>
+
+    </div>
+
+    <div id="users"></div>
+
+
+    <script>
+
+        // Form
+        const form = document.getElementById("registrationForm");
+
+        // Display area
+        const users = document.getElementById("users");
+
+        // Local Storage Key
+        let registrations =
+            JSON.parse(localStorage.getItem("registrations")) || [];
+
+
+        // SUBMIT
+        form.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let phone = document.getElementById("phone").value;
+            let course = document.getElementById("course").value;
+
+            let data = {
+                id: Date.now(),
+                name: name,
+                email: email,
+                phone: phone,
+                course: course
+            };
+
+            registrations.push(data);
+
+            // Save into Local Storage
+            localStorage.setItem(
+                "registrations",
+                JSON.stringify(registrations)
+            );
+
+            form.reset();
+
+            // GET data
+            getData();
+        });
+
+
+        // GET DATA
+        function getData() {
+
+            users.innerHTML = "";
+
+            // GET from Local Storage
+            let data =
+                JSON.parse(localStorage.getItem("registrations")) || [];
+
+            data.forEach(function(user) {
+
+                let div = document.createElement("div");
+
+                div.className = "user";
+
+                div.innerHTML = `
+                    <h3>${user.name}</h3>
+
+                    <p>Email: ${user.email}</p>
+
+                    <p>Phone: ${user.phone}</p>
+
+                    <p>Course: ${user.course}</p>
+
+                    <button class="edit"
+                        onclick="editData(${user.id})">
+                        Edit
+                    </button>
+
+                    <button class="delete"
+                        onclick="deleteData(${user.id})">
+                        Delete
+                    </button>
+                `;
+
+                users.appendChild(div);
+            });
+        }
+
+
+        // EDIT
+        function editData(id) {
+
+            let data =
+                JSON.parse(localStorage.getItem("registrations")) || [];
+
+            let user = data.find(function(item) {
+                return item.id === id;
+            });
+
+            document.getElementById("name").value = user.name;
+            document.getElementById("email").value = user.email;
+            document.getElementById("phone").value = user.phone;
+            document.getElementById("course").value = user.course;
+
+            // Delete old record
+            data = data.filter(function(item) {
+                return item.id !== id;
+            });
+
+            localStorage.setItem(
+                "registrations",
+                JSON.stringify(data)
+            );
+
+            getData();
+        }
+
+
+        // DELETE
+        function deleteData(id) {
+
+            let data =
+                JSON.parse(localStorage.getItem("registrations")) || [];
+
+            data = data.filter(function(item) {
+                return item.id !== id;
+            });
+
+            localStorage.setItem(
+                "registrations",
+                JSON.stringify(data)
+            );
+
+            getData();
+        }
+
+
+        // Load data when page opens
+        getData();
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html> 
+
+<html>
+<body>
+<script>
+  let sub1 = 80, sub2 = 70, sub3 = 60;
+
+  let total = sub1 + sub2 + sub3;
+  let avg = total / 3;
+
+  let result, grade;
+
+  if (sub1 >= 35 && sub2 >= 35 && sub3 >= 35) {
+      result = "PASS";
+      if (avg >= 75) {
+          grade = "A";
+      } else if (avg >= 60) {
+          grade = "B";                            
+      } else {
+          grade = "C";
+      }
+  } else {
+      result = "FAIL";
+      grade = "No Grade";
+  }
+
+  console.log("Total Marks: " + total );
+  console.log ("Average Marks: " + avg );
+   console.log("Result: " + result );
+   console.log("Grade: " + grade);
+</script>
+</body>
+</html>

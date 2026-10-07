@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Form</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .modal-container {
+      background: #ffffff;
+      border: 1px solid #d0d0d0;
+      border-radius: 4px;
+      width: 100%;
+      max-width: 650px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+    }
+
+  
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 20px;
+      border-bottom: 1px solid #e0e0e0;
+      background-color: #ffffff;
+    }
+
+    .modal-header h2 {
+      margin: 0;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #333;
+      flex-grow: 1;
+      text-align: center;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      color: #888;
+      cursor: pointer;
+      line-height: 1;
+      padding: 2px 6px;
+      border-radius: 50%;
+    }
+
+    .close-btn:hover {
+      background-color: #f0f0f0;
+      color: #333;
+    }
+
+    /* Section Headers */
+    .section-title {
+      background-color: #f4f4f4;
+      padding: 8px 16px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #333;
+      border-top: 1px solid #e0e0e0;
+      border-bottom: 1px solid #e0e0e0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .section-title.collapsible {
+      cursor: pointer;
+    }
+
+    .arrow-down {
+      font-size: 0.7rem;
+    }
+
+    /* Form Body */
+    .form-body {
+      padding: 16px 20px;
+    }
+
+    .form-group {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .form-label {
+      width: 35%;
+      text-align: right;
+      padding-right: 15px;
+      font-size: 0.85rem;
+      color: #444;
+    }
+
+    .required {
+      color: #d9534f;
+      margin-right: 2px;
+    }
+
+    .form-input-container {
+      width: 65%;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+ 
+    input[type="text"], select {
+      padding: 5px 8px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      font-size: 0.85rem;
+      outline: none;
+      color: #333;
+    }
+
+    input[type="text"]:focus, select:focus {
+      border-color: #2e7d32;
+    }
+
+    .input-small {
+      width: 70px;
+    }
+
+    .input-full {
+      width: 100%;
+      max-width: 250px;
+    }
+
+    
+    .btn-group {
+      display: inline-flex;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      overflow: hidden;
+      background: #f9f9f9;
+    }
+
+    .btn-group input[type="radio"] {
+      display: none;
+    }
+
+    .btn-group label {
+      padding: 5px 12px;
+      font-size: 0.85rem;
+      color: #444;
+      cursor: pointer;
+      border-right: 1px solid #ccc;
+      user-select: none;
+      background: #fff;
+    }
+
+    .btn-group label:last-child {
+      border-right: none;
+    }
+
+    .btn-group input[type="radio"]:checked + label {
+      background-color: #e8e8e8;
+      font-weight: 600;
+      color: #111;
+      box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+    }
+
+   
+    .help-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 1px solid #aaa;
+      color: #777;
+      font-size: 0.7rem;
+      cursor: help;
+    }
+
+
+    .input-with-icon {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      max-width: 250px;
+    }
+
+    .input-with-icon input {
+      flex-grow: 1;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    .icon-btn {
+      background: #f4f4f4;
+      border: 1px solid #ccc;
+      border-left: none;
+      padding: 5px 8px;
+      border-top-right-radius: 3px;
+      border-bottom-right-radius: 3px;
+      cursor: pointer;
+      color: #666;
+      font-size: 0.8rem;
+    }
+
+   
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 38px;
+      height: 20px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: #ccc;
+      transition: .3s;
+      border-radius: 20px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 14px;
+      width: 14px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .3s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: #2e7d32;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(18px);
+    }
+
+    /* Footer Buttons */
+    .modal-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 20px;
+      border-top: 1px solid #e0e0e0;
+      background-color: #ffffff;
+    }
+
+    .btn {
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      border-radius: 3px;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+
+    .btn-default {
+      background-color: #ffffff;
+      border-color: #ccc;
+      color: #333;
+    }
+
+    .btn-default:hover {
+      background-color: #f5f5f5;
+    }
+
+    .btn-disabled {
+      background-color: #ffffff;
+      border-color: #e0e0e0;
+      color: #ccc;
+      cursor: not-allowed;
+    }
+
+    .btn-primary {
+      background-color: #226c36;
+      color: white;
+      font-weight: 500;
+    }
+
+    .btn-primary:hover {
+      background-color: #1b562b;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="modal-container">
+    <!-- Header -->
+    <div class="modal-header">
+      <div></div>
+      <h2>Create Form</h2>
+      <button class="close-btn" aria-label="Close">&times;</button>
+    </div>
+
+    <form>
+   
+      <div class="section-title">Page Definition</div>
+      <div class="form-body">
+        
+        <div class="form-group">
+          <label class="form-label"><span class="required">*</span>Page Number</label>
+          <div class="form-input-container">
+            <input type="text" class="input-small" required>
+            <span class="help-icon">?</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label"><span class="required">*</span>Name</label>
+          <div class="form-input-container">
+            <input type="text" class="input-full" required>
+            <span class="help-icon">?</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Page Mode</label>
+          <div class="form-input-container">
+            <div class="btn-group">
+              <input type="radio" id="mode-normal" name="page_mode" value="normal" checked>
+              <label for="mode-normal">Normal</label>
+
+              <input type="radio" id="mode-modal" name="page_mode" value="modal">
+              <label for="mode-modal">Modal Dialog</label>
+
+              <input type="radio" id="mode-drawer" name="page_mode" value="drawer">
+              <label for="mode-drawer">Drawer</label>
+            </div>
+            <span class="help-icon">?</span>
+          </div>
+        </div>
+
+      </div>
+
+      
+      <div class="section-title">Data Source</div>
+      <div class="form-body">
+        
+        <div class="form-group">
+          <label class="form-label">Data Source</label>
+          <div class="form-input-container">
+            <select class="input-full">
+              <option value="local">Local Database</option>
+            </select>
+            <span class="help-icon">?</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Source Type</label>
+          <div class="form-input-container">
+            <div class="btn-group">
+              <input type="radio" id="type-table" name="source_type" value="table" checked>
+              <label for="type-table">Table</label>
+
+              <input type="radio" id="type-sql" name="source_type" value="sql">
+              <label for="type-sql">SQL Query</label>
+            </div>
+            <span class="help-icon">?</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label"><span class="required">*</span>Table / View Owner</label>
+          <div class="form-input-container">
+            <select class="input-full" required>
+              <option value="WKSP_APEXBLOGS">WKSP_APEXBLOGS</option>
+            </select>
+            <span class="help-icon">?</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label"><span class="required">*</span>Table / View Name</label>
+          <div class="form-input-container">
+            <div class="input-with-icon">
+              <input type="text" required>
+              <button type="button" class="icon-btn">&#9776;</button>
+            </div>
+            <span class="help-icon">?</span>
+          </div>
+        </div>
+
+      </div>
+
+    
+      <div class="section-title collapsible">
+        <span class="arrow-down">&#9660;</span> Navigation
+      </div>
+      <div class="form-body">
+        
+        <div class="form-group">
+          <label class="form-label">Use Breadcrumb</label>
+          <div class="form-input-container">
+            <label class="switch">
+              <input type="checkbox" checked>
+              <span class="slider"></span>
+            </label>
+            <span class="help-icon">?</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="modal-footer">
+        <div>
+          <button type="button" class="btn btn-disabled" disabled>&lt;</button>
+          <button type="button" class="btn btn-default">Cancel</button>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-primary">Next &gt;</button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+</body>
+</html>

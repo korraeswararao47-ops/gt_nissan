@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Request</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ccc;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        #input_text {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: vertical;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 15px;
+            padding: 12px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        #output {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            min-height: 50px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Ask My LLM</h2>
+
+        <textarea id="input_text" placeholder="Enter your question..."></textarea>
+
+        <button onclick="sendRequest(document.getElementById('input_text').value)">
+            Send Request
+        </button>
+
+        <div id="output">Response will appear here...</div>
+    </div>
+
+
+    <script>
+        async function sendRequest(input) {
+
+            const output = document.getElementById("output");
+
+            if (!input.trim()) {
+                output.innerText = "Please enter some text.";
+                return;
+            }
+
+            output.innerText = "Loading...";
+
+            try {
+                const response = await fetch(
+                    `https://api.openweathermap.org/data/2.5/weather,
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type": "application/json"
+                            // Add API key here if required:
+                            // "Authorization": "Bearer YOUR_API_KEY"
+                        },
+
+                        body: JSON.stringify({
+                            input: input
+                        })
+                    }
+                );
+
+                if (!response.ok) {
+                    throw new Error("HTTP Error: " + response.status);
+                }
+
+                const result = await response.json();
+
+                // Display API response on the screen
+                output.innerText = JSON.stringify(result, null, 2);
+
+            } catch (error) {
+                output.innerText = "Error: " + error.message;
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+</head>
+
+<body>
+
+    <h1>Login Form</h1>
+
+    <input type="text" id="name" placeholder="Enter the name">
+    <br><br>
+
+    <input type="email" id="email" placeholder="Enter the email">
+    <br><br>
+
+    <input type="password" id="password" placeholder="Enter the password">
+    <br><br>
+
+    <button onclick="login()">Login</button>
+
+    <h2>Users</h2>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Password</th>
+            </tr>
+        </thead>
+
+        <tbody id="userTable">
+        </tbody>
+    </table>
+
+    <script>
+
+        function login() {
+
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+
+            let users = JSON.parse(localStorage.getItem("users")) || [];
+
+            let user = {
+                name: name,
+                email: email,
+                password: password
+            };
+
+            users.push(user);
+
+            localStorage.setItem("users", JSON.stringify(users));
+
+            alert("Login successful");
+
+            console.log("User saved:", user);
+
+            showuser();
+        }
+
+
+        function showuser() {
+
+            let users = JSON.parse(localStorage.getItem("users")) || [];
+
+            let output = "";
+
+            for (let user of users) {
+
+                output += `
+                    <tr>
+                        <td>${user.name}</td>
+                        <td>${user.email}</td>
+                        <td>${user.password}</td>
+                    </tr>
+                `;
+            }
+
+            document.getElementById("userTable").innerHTML = output;
+        }
+
+        showuser();
+
+    </script>
+
+</body>
+</html>

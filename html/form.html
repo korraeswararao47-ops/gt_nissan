@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COSTOMER LOGIN</title>
+</head>
+<body>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+      
+     form{ 
+        box-shadow: #ff0404;
+        min-height: 100vh;
+        justify-content: center;
+        align-items: center;
+        background: radial-gradient(circle at 50% 30%, #5d9cec #1b3a6b #0c182b);
+       }
+      .login-card {
+           box-shadow: 0 0 2px rgb(228, 116, 116);
+           align-items: center;
+           width: 600px;
+           height: 600px;
+           padding:50px ;
+           margin: 800px;
+           border-radius: 9px ;    
+        }
+        
+          .forgot-link {
+            color: rgb(8, 70, 2);
+            text-decoration: none;
+        }
+        .forgot-link:hover {
+            text-decoration: underline;
+            color: #04410e;
+        }
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #11529b;
+            border: none;
+            border-radius: 2px;
+            color: #fcf9f9;
+            font-size: 13px;
+            letter-spacing: 2px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .login-btn:hover {
+            background-color: #107aeb;
+        }
+    </style>
+   <div class="login-card">
+   
+        <div class="avatar-icon">
+     
+        </div>
+        
+        <h2 class="title">Customer service
+
+        </h2>
+        <form action="#">
+            <div class="input-group">
+              
+                <input type="email" placeholder="Email ID" required>
+            </div>
+
+            <div class="input-group">
+               
+                <input type="password" placeholder="Password" required>
+            </div>
+
+            <div class="options-row">
+                <label class="checkbox-container">
+                    <input type="checkbox" checked> Remember me
+                </label>
+                <a href="#" class="forgot-link">Forgot Password</a>
+            </div>
+
+            <button type="submit" class="login-btn">LOGIN</button>
+        </form>
+    </div>
+
+
+
+
+
+
+
+
+    </form>
+</body>
+</html>

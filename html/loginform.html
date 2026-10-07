@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>login form</h1>
+
+<input type="text" id="name" placeholder="enter the name">
+<br><br>
+<input type="email" id="email"  placceholder="enter your email">
+<br><br>
+<input type="password" id="password" placehoder="enter your password">
+<br><br>
+<button onclick="login()">login</button>
+
+<script>
+ function login(){
+    let name = document.getElementByid("name").value;
+    let email = document.getElementByid("email").value;
+    let password = document.getElementByid("password").value;
+
+    let users = JSON.parse(localStorage.getItem("users"))||[];
+
+    let user = {
+        name:name,
+        email:email,
+        password
+    };
+    users:push(user);
+    localStorage.setitem("user",JSON.stringfy(users));
+    alert("login successful")
+    console.log("user saved",user)
+ }
+
+</script>
+
+</body>
+</html>

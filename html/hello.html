@@ -1,0 +1,165 @@
+<!-- saved from url=(0042)http://127.0.0.1:5500/ESWARCSS%20DAY1.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>RACING SIMULATING FORM</title>
+<style>
+    .form-container{
+        width: 200px;
+        padding: 70px;
+        background-color: bisque;
+        background: wheat;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgb(0,0,0.12)
+    }
+    button:hover{
+        background-color: grey;
+        color: rgb(155, 13, 226);
+    }
+    button{
+        background-color: rgb(112, 112, 244);
+        color: black;
+        border-radius: 10px;
+        padding:rgb(193, 135, 135);
+    }
+    input:focus{
+        color: forestgreen;
+    }
+    p{
+        font-size: 20px;
+        font-style:italic ;
+        color: indianred;
+        min-width: 100px;
+    }
+    #student{
+        color: lightsalmon;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    .employee{
+        color: rgb(218, 181, 159);
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    h1{
+        text-align: center;
+        color: rgb(120, 92, 92);
+        font-style: italic;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        background: wheat;
+        background-color:#3d0215;
+        max-width: fit-content;
+        box-shadow: 100px;
+}
+div p{
+    color: rgb(117, 52, 9);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+background-color: rgb(238, 104, 55);
+max-width: fit-content;
+}
+form{
+    border:2px  solid rgb(107, 37, 0);
+    width: 300px;
+    padding: 70px;
+   margin-right:  100px;
+   margin-right: 200px;
+   background: wheat;
+   background-color: rgb(163, 55, 12);
+   border-radius: 10px;
+   box-shadow: rgb(0,0,0.12);
+
+}
+div >p{
+    background-color: bisque;
+    text-align: center;
+
+}
+input[type="text"]{
+    border-radius: 10px;
+    border:2px solid rgb(88, 63, 1);
+    background-color: rgb(38, 23, 3);
+}
+input[type="tex"]{
+border: 2px solid blueviolet;
+background-color:green;
+
+}
+input[type="radio"]{
+    border: 2px solid orange;
+    background-color: cadetblue;
+    accent-color: red;
+}
+h1::before{
+content:"*"    
+}
+h1::after{
+    content:"*"
+}
+</style>
+
+</head>
+<body>
+    <div class="form-container">
+        <form>
+            <center>
+    <h1 class="center">Enter the dragon</h1>
+               </center>
+                
+    <p>Animation creation</p>
+    <p id="sudent">student intersting for playing gaming </p>
+   
+        <p>gaming simulation</p>
+        <section>
+        <p>track building</p>
+        </section>
+    <div>
+
+    <lable for="name">Name</lable>
+    <input type="text" id="name">
+
+    <lable for="gender">Gender</lable>
+    <input type="radio" id="gender" name=" gender" value="male">
+    <label for="gender">Name</label>
+    <input type="radio" id="gender" name="gender" value="female">
+<label for="gender">Female</label>
+<button>Submit</button>
+</div>
+</form></div>
+
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+</body></html>

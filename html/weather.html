@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<htm>
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>LLM + Weather App</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 40px;
+            background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            text-align: center;
+            color: #222;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        textarea {
+            width: 100%;
+            height: 120px;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            resize: vertical;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 8px;
+            background: #007bff;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        .weather-button {
+            background: #28a745;
+        }
+
+        .weather-button:hover {
+            background: #1e7e34;
+        }
+
+        #output,
+        #weatherOutput {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            min-height: 50px;
+            white-space: pre-wrap;
+        }
+
+        .weather-info {
+            line-height: 1.8;
+            font-size: 17px;
+        }
+
+        .temperature {
+            font-size: 35px;
+            font-weight: bold;
+            color: #ff6600;
+        }
+
+        .error {
+            color: red;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+    <script>
+    const API_KEY = "YOUR_API_KEY";
+
+fetch("https://api.openweathermap.org/data/4.0/onecall/current?lat=${12.9716}&lon=${77.5946}&appid=${aruku}{API key}}")
+    .then(response => response.json())
+    .then(data => console.log(data));</script>
+
+    <div class="container">
+
+        <h1>  Weather Application</h1>
+
+
+
+        <div class="card">
+
+            <h2> Ask My API</h2>
+
+            <textarea
+                id="input_text"
+                placeholder="Enter your question...">
+            </textarea>
+
+            <button onclick="sendRequest()">
+                Send Request
+            </button>
+
+            <div id="output">
+                 response will appear here...
+            </div>
+
+        </div>
+
+
+
+        <div class="card">
+
+            <h2>🌤️ Weather Information</h2>
+
+            <input
+                type="text"
+                id="city"
+                placeholder=

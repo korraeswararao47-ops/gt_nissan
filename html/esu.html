@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MusicX | Future Music</title>
+
+    <link rel="stylesheet" href="esu.css">
+</head>
+
+<body>
+
+    <!-- Background Effects -->
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <span>♪</span> MusicX
+        </div>
+
+        <nav>
+            <button class="nav-btn active" data-section="home">
+                🏠 Home
+            </button>
+
+            <button class="nav-btn" data-section="trending">
+                🔥 Trending
+            </button>
+
+            <button class="nav-btn" data-section="favorites">
+                ❤️ Favorites
+            </button>
+
+            <button class="nav-btn" data-section="playlist">
+                📋 My Playlist
+            </button>
+
+            <button class="nav-btn" data-section="recent">
+                🕘 Recently Played
+            </button>
+        </nav>
+
+        <div class="side-bottom">
+            <p>MusicX v1.0</p>
+            <small>Future of Music</small>
+        </div>
+
+    </aside>
+
+
+    <!-- Main Content -->
+    <main class="main">
+
+        <!-- Header -->
+        <header class="header">
+
+            <div>
+                <h2>Good Evening 👋</h2>
+                <p>Discover your next favorite song.</p>
+            </div>
+
+            <div class="search-box">
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search songs, artists..."
+                >
+
+                <button id="searchBtn">
+                    🔎
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- Home -->
+        <section id="home" class="section active-section">
+
+            <div class="hero">
+
+                <div class="hero-content">
+
+                    <span class="badge">
+                        ✨ FUTURE MUSIC
+                    </span>
+
+                    <h1>
+                        Your Music.
+                        <br>
+                        Your Universe.
+                    </h1>
+
+                    <p>
+                        Discover trending songs, search millions of tracks
+                        and create your personal music collection.
+                    </p>
+
+                    <button id="discoverBtn" class="primary-btn">
+                        🎧 Discover Music
+                    </button>
+
+                </div>
+
+                <div class="hero-circle">
+                    <div class="music-symbol">♫</div>
+                </div>
+
+            </div>
+
+
+            <!-- Trending -->
+            <div class="section-title">
+
+                <div>
+                    <h2>🔥 Trending Now</h2>
+                    <p>Popular music from the API</p>
+                </div>
+
+                <button id="viewTrending">
+                    View All →
+                </button>
+
+            </div>
+
+            <div id="trendingGrid" class="music-grid"></div>
+
+
+            <!-- Popular Genres -->
+            <div class="section-title">
+
+                <div>
+                    <h2>🎼 Explore Genres</h2>
+                </div>
+
+            </div>
+
+            <div class="genres">
+
+                <button onclick="searchGenre('Pop')">
+                    🎤 Pop
+                </button>
+
+                <button onclick="searchGenre('Rock')">
+                    🎸 Rock
+                </button>
+
+                <button onclick="searchGenre('Hip-Hop')">
+                    🎧 Hip-Hop
+                </button>
+
+                <button onclick="searchGenre('Electronic')">
+                    ⚡ Electronic
+                </button>
+
+                <button onclick="searchGenre('Classical')">
+                    🎻 Classical
+                </button>
+
+                <button onclick="searchGenre('Bollywood')">
+                    🇮🇳 Bollywood
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- Search -->
+        <section id="searchSection" class="section">
+
+            <div class="section-title">
+                <div>
+                    <h2>🔎 Search Results</h2>
+                    <p id="searchText">Find your music</p>
+                </div>
+            </div>
+
+            <div id="searchGrid" class="music-grid"></div>
+
+        </section>
+
+
+        <!-- Trending -->
+        <section id="trending" class="section">
+
+            <div class="section-title">
+
+                <div>
+                    <h2>🔥 Trending Music</h2>
+                    <p>Popular tracks</p>
+                </div>
+
+            </div>
+
+            <div id="fullTrendingGrid" class="music-grid"></div>
+
+        </section>
+
+
+        <!-- Favorites -->
+        <section id="favorites" class="section">
+
+            <div class="section-title">
+
+                <div>
+                    <h2>❤️ Your Favorites</h2>
+                    <p>Your liked songs</p>
+                </div>
+
+            </div>
+
+            <div id="favoriteGrid" class="music-grid"></div>
+
+        </section>
+
+
+        <!-- Playlist -->
+        <section id="playlist" class="section">
+
+            <div class="section-title">
+
+                <div>
+                    <h2>📋 My Playlist</h2>
+                    <p>Your personal playlist</p>
+                </div>
+
+            </div>
+
+            <div id="playlistGrid" class="music-grid"></div>
+
+        </section>
+
+
+        <!-- Recent -->
+        <section id="recent" class="section">
+
+            <div class="section-title">
+
+                <div>
+                    <h2>🕘 Recently Played</h2>
+                    <p>Your listening history</p>
+                </div>
+
+            </div>
+
+            <div id="recentGrid" class="music-grid"></div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Music Player -->
+    <div class="player">
+
+        <div class="now-playing">
+
+            <img id="playerImage" src="" alt="">
+
+            <div>
+                <h4 id="playerTitle">
+                    Select a song
+                </h4>
+
+                <p id="playerArtist">
+                    MusicX
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="player-center">
+
+            <div class="controls">
+
+                <button id="shuffleBtn">
+                    🔀
+                </button>
+
+                <button id="prevBtn">
+                    ⏮
+                </button>
+
+                <button id="playBtn" class="play-btn">
+                    ▶
+                </button>
+
+                <button id="nextBtn">
+                    ⏭
+                </button>
+
+                <button id="repeatBtn">
+                    🔁
+                </button>
+
+            </div>
+
+            <div class="progress-container">
+
+                <span id="currentTime">
+                    0:00
+                </span>
+
+                <input
+                    type="range"
+                    id="progress"
+                    min="0"
+                    max="100"
+                    value="0"
+                >
+
+                <span id="duration">
+                    0:00
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="volume">
+
+            🔊
+
+            <input
+                type="range"
+                id="volume"
+                min="0"
+                max="1"
+                step="0.01"
+                value="0.7"
+            >
+
+        </div>
+
+    </div>
+
+
+    <!-- Audio -->
+    <audio id="audio"></audio>
+
+    <script src="index.js"></script>
+
+</body>
+</html>

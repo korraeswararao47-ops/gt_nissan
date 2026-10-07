@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>MusicX | Premium Music</title>
+
+    <link rel="stylesheet" href="guiter.css">
+
+</head>
+
+<body>
+
+    <!-- Animated Background -->
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+    <div class="background-glow glow-three"></div>
+
+    <!-- JavaScript Music Particles -->
+    <div id="particles"></div>
+
+
+    <!-- NAVBAR -->
+
+    <header>
+
+        <div class="logo">
+            <span>♪</span> MusicX
+        </div>
+
+        <nav>
+
+            <a href="#home">Home</a>
+            <a href="#music">Discover</a>
+            <a href="#cart">Cart</a>
+
+        </nav>
+
+        <div class="profile">
+            🎧
+        </div>
+
+    </header>
+
+
+    <!-- HERO -->
+
+    <section id="home" class="hero">
+
+        <div class="hero-left">
+
+            <div class="premium-badge">
+                ✦ PREMIUM MUSIC EXPERIENCE
+            </div>
+
+            <h1>
+                Music that
+                <br>
+                <span>moves your soul.</span>
+            </h1>
+
+            <p>
+                Discover millions of songs, explore new artists
+                and enjoy your favorite music in a beautiful
+                digital experience.
+            </p>
+
+            <div class="hero-buttons">
+
+                <button
+                    class="primary-btn"
+                    onclick="goToMusic()">
+
+                    Explore Music
+                    <span>→</span>
+
+                </button>
+
+                <button
+                    class="secondary-btn"
+                    onclick="showFeatured()">
+
+                    ♫ Featured
+                </button>
+
+            </div>
+
+            <div class="stats">
+
+                <div>
+                    <strong>∞</strong>
+                    <small>Music</small>
+                </div>
+
+                <div>
+                    <strong>24/7</strong>
+                    <small>Discovery</small>
+                </div>
+
+                <div>
+                    <strong>HD</strong>
+                    <small>Experience</small>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- HERO MUSIC VISUAL -->
+
+        <div class="hero-right">
+
+            <div class="vinyl">
+
+                <div class="vinyl-center">
+                    ♪
+                </div>
+
+            </div>
+
+            <div class="floating-card card-one">
+                🎵
+                <span>New Music</span>
+            </div>
+
+            <div class="floating-card card-two">
+                ♫
+                <span>Feel the beat</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SEARCH -->
+
+    <section id="music" class="discover">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span>DISCOVER</span>
+
+                <h2>
+                    Find your next
+                    <strong>favorite song.</strong>
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="search-container">
+
+            <div class="search-icon">
+                ⌕
+            </div>
+
+            <input
+                id="searchInput"
+                type="text"
+                placeholder="Search artist, song or album..."
+            >
+
+            <button onclick="searchMusic()">
+                Search
+            </button>
+
+        </div>
+
+        <p id="status"></p>
+
+
+        <!-- MUSIC RESULTS -->
+
+        <div
+            id="musicContainer"
+            class="music-container">
+
+            <div class="empty-state">
+
+                <div>♫</div>
+
+                <h3>
+                    Start your musical journey
+                </h3>
+
+                <p>
+                    Search for an artist or song above.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CART -->
+
+    <section id="cart" class="cart-section">
+
+        <div class="cart-header">
+
+            <div>
+
+                <span>YOUR COLLECTION</span>
+
+                <h2>
+                    Shopping Cart
+                </h2>
+
+            </div>
+
+            <div class="cart-icon">
+                🛒
+            </div>
+
+        </div>
+
+
+        <div id="cartItems">
+
+            <div class="empty-cart">
+                Your cart is currently empty.
+            </div>
+
+        </div>
+
+
+        <div class="cart-bottom">
+
+            <div>
+
+                <small>Total Amount</small>
+
+                <h2>
+                    ₹<span id="total">0</span>
+                </h2>
+
+            </div>
+
+            <button
+                class="checkout"
+                onclick="checkout()">
+
+                Checkout →
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-logo">
+            ♪ MusicX
+        </div>
+
+        <p>
+            Your premium digital music experience.
+        </p>
+
+        <div class="footer-line"></div>
+
+        <small>
+            © 2026 MusicX • Built with HTML, CSS,
+            JavaScript & Music API
+        </small>
+
+    </footer>
+
+
+    <script src="guiter.js"></script>
+
+</body>
+
+</html>
+```

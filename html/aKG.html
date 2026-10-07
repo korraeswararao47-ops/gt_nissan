@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Registration</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .form-card {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 30px 40px;
+      width: 100%;
+      max-width: 550px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 5px;
+      letter-spacing: 1px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #333;
+      margin-bottom: 25px;
+      font-size: 14px;
+    }
+
+    h3 {
+      font-size: 15px;
+      margin-top: 15px;
+      margin-bottom: 10px;
+    }
+
+    .row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 12px;
+      align-items: center;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="tel"],
+    select {
+      padding: 6px 10px;
+      border: 1px solid #b0b0b0;
+      border-radius: 3px;
+      font-size: 13px;
+      outline: none;
+    }
+
+    .flex-1 { flex: 1; }
+
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      margin: 15px 0;
+    }
+
+    .checkbox-group a {
+      color: #008080;
+      text-decoration: none;
+    }
+
+    .action-row {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-top: 20px;
+      font-size: 13px;
+    }
+
+    .btn-cancel {
+      color: blue;
+      text-decoration: none;
+    }
+
+    .btn-submit {
+      background-color: #005959;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      font-size: 11px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 2px;
+    }
+
+    .btn-submit:hover {
+      background-color: #004040;
+    }
+
+    .login-link a {
+      color: #008080;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-card">
+    <h2>USER REGISTRATION</h2>
+    <div class="subtitle">Create your account to access our platform</div>
+
+    <form id="registrationForm" onsubmit="handleSubmit(event)">
+     
+      <h3>Personal Information</h3>
+      <div class="row">
+        <input type="text" placeholder="First name" class="flex-1" required>
+        <input type="text" placeholder="Last name" class="flex-1" required>
+      </div>
+
+      <div class="row">
+        <input type="email" placeholder="Enter email" class="flex-1" required>
+        <label style="font-size: 13px;">Date of Birth</label>
+        <select required>
+          <option value="">Date</option>
+       
+           <option value="1">1</option><option value="2">2</option><option value="3">3</option>
+            <option value="4">4</option><option value="5">5</option><option value="6">6</option>
+            <option value="7">7</option><option value="8">8</option><option value="9">9</option>
+            <option value="10">10</option><option value="11">11</option><option value="12">12</option>
+            <option value="13">13</option><option value="14">14</option><option value="15">15</option>
+            <option value="16">16</option><option value="17">17</option><option value="18">18</option>
+            <option value="19">19</option><option value="20">20</option><option value="21">21</option>
+            <option value="22">22</option><option value="23">23</option><option value="24">24</option>
+            <option value="25">25</option><option value="26">26</option><option value="27">27</option>
+            <option value="28">28</option><option value="29">29</option><option value="30">30</option>
+            <option value="31">31</option><option value=""></option><option value=""></option>
+
+        </select>
+        <select required>
+          <option value="">Month</option>
+          <option value="Jan">Jan</option><option value="Feb">Feb</option>
+          <option value="march">march</option><option value="april">april</option>
+          <option value="may">may</option><option value="june">june</option>
+          <option value="july">july</option><option value="august">august</option>
+           <option value="september">september</option><option value="october">october</option>
+           <option value="november">november</option><option value="december">december</option>
+          
+            
+            
+        
+        </select>
+        <select required>
+          <option value="">Year</option>
+          
+          <option>1990</option><option>1991</option><option>1992</option>
+          <option>1993</option><option>1994</option><option>1995</option>
+          <option>1996</option><option>1997</option><option>1998</option>
+          <option>1999</option><option>2000</option><option>2001</option>
+          <option>2002</option><option>2003</option><option>2004</option>
+          <option>2005</option><option>2006</option><option>2007</option>
+          <option>2008</option><option>2009</option><option>2010</option>
+          <option>2011</option><option>2012</option><option>2013</option>
+          <option>2014</option><option>2015</option><option>2016</option>
+          <option>2017</option> <option>2018</option> <option>2019</option> 
+          <option>2020</option><option>2021</option> <option>2022</option> 
+          <option>2023</option> <option>2024</option>
+          <option>2025</option> <option>2026</option>
+          
+        </select>
+      </div>
+
+      <h3>Account credentials</h3>
+      <div class="row">
+        <input type="text" id="username" placeholder="User name" class="flex-1" required>
+        <input type="password" id="password" placeholder="Enter password" class="flex-1" required>
+        <input type="password" id="confirmPassword" placeholder="Confirm password" class="flex-1" required>
+      </div>
+
+    
+      <h3>Conatct Details</h3>
+      <div class="row">
+        <input type="tel" placeholder="Phone number" class="flex-1">
+        <input type="text" placeholder="street address" class="flex-1">
+      </div>
+      <div class="row">
+        <input type="text" placeholder="city" class="flex-1">
+        <input type="text" placeholder="zip code" class="flex-1">
+        <select class="flex-1">
+          <option value="">State</option>
+          <option value="AP">andhra</option>
+          <option value="AR">arunachalpradesh</option>
+          <option value="AS">assam</option>
+          <option value="BR">bihar</option>
+          <option value="CG">chatish ghar</option>
+          <option value="GA">goa</option>
+          <option value="GJ">gujarat</option>
+          <option value="HR">haryana</option>
+          <option value="HP">himachal pradesh</option>
+          <option value="JH">jarkhand</option>
+          <option value="KA">karnataka</option>
+          <option value="KL">kerala</option>
+          <option value="MP">madhyapradesh</option>
+          <option value="MH">maharastra</option>
+          <option value="MN">manipur</option>
+          <option value="ML">megalaya</option>
+          <option value="MZ">mizoram</option>
+          <option value="NL">nagaland</option>
+          <option value="OD">odissa</option>
+          <option value="PB">panjab</option>
+          <option value="RJ">rajasthan</option>
+          <option value="SK">sikkim</option>
+          <option value="TN">tamilnadu</option>
+          <option value="TS">telangana</option>
+          <option value="TR">tripura</option>
+          <option value="UP">uttarpradesh</option>
+          <option value="UK">uttarkhand</option>
+          <option value="WB">westbengal</option>
+          
+        </select>
+      </div>
+
+   
+      <h3>Profile setup</h3>
+      <div class="row">
+        <label style="font-size: 13px;">Selet Profile Type:</label>
+        <select required>
+          <option value="Individual">Individual</option>
+          <option value="Business">Business</option>
+          <option value="Student">Student</option>
+        </select>
+      </div>
+
+      <div class="checkbox-group">
+        <input type="checkbox" id="terms" required>
+        <label for="terms">I agree to the <a href="#">Term of Service</a> and <a href="#">Privacy Policy</a></label>
+      </div>
+
+    
+      <div class="action-row">
+        <a href="#" class="btn-cancel">Cancel</a>
+        <button type="submit" class="btn-submit">CREATE ACCOUNT</button>
+        <span class="login-link">Already have an account ? <a href="#">Log in</a></span>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    function handleSubmit(event) {
+      event.preventDefault();
+
+      const pass = document.getElementById('password').value;
+      const confirmPass = document.getElementById('confirmPassword').value;
+
+      if (pass !== confirmPass) {
+        alert("Passwords do not match!");
+        return;
+      }
+
+      alert("Account created successfully!");
+    }
+  </script>
+
+</body>
+</html>

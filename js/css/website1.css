@@ -1,0 +1,213 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+
+    /* Beautiful green nature background */
+    background:
+        linear-gradient(
+            rgba(0, 80, 30, 0.35),
+            rgba(0, 120, 50, 0.45)
+        ),
+        linear-gradient(
+            to bottom,
+            #87ceeb 0%,
+            #b8e994 45%,
+            #228b22 70%,
+            #145214 100%
+        );
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+/* Sun */
+body::before {
+    content: "";
+    position: absolute;
+
+    width: 130px;
+    height: 130px;
+
+    background: #fff59d;
+    border-radius: 50%;
+
+    top: 60px;
+    right: 100px;
+
+    box-shadow: 0 0 60px #fff59d;
+
+    opacity: 0.9;
+}
+
+/* Mountain scenery */
+body::after {
+    content: "";
+
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 45%;
+
+    background:
+        linear-gradient(
+            135deg,
+            transparent 50%,
+            #27632a 50%
+        ),
+        linear-gradient(
+            45deg,
+            transparent 50%,
+            #164d24 50%
+        );
+
+    background-size: 50% 100%;
+    background-repeat: no-repeat;
+
+    z-index: 0;
+}
+
+/* Main Card */
+.container {
+    position: relative;
+    z-index: 2;
+
+    width: 430px;
+
+    padding: 40px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.18);
+
+    border: 1px solid rgba(255, 255, 255, 0.4);
+
+    border-radius: 25px;
+
+    backdrop-filter: blur(12px);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.3);
+
+    color: white;
+
+    animation: floating 3s ease-in-out infinite;
+}
+
+/* Floating animation */
+@keyframes floating {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 15px;
+
+    text-shadow:
+        2px 3px 5px rgba(0, 0, 0, 0.4);
+}
+
+h2 {
+    margin-bottom: 15px;
+    color: #eaffea;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+
+    color: white;
+}
+
+/* Button */
+button {
+    padding: 13px 30px;
+
+    border: none;
+    border-radius: 30px;
+
+    background: linear-gradient(
+        135deg,
+        #00c853,
+        #1b5e20
+    );
+
+    color: white;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.3);
+
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.08);
+
+    background: linear-gradient(
+        135deg,
+        #69f0ae,
+        #00a83b
+    );
+
+    box-shadow:
+        0 12px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Small nature-style decoration */
+.container::before {
+    content: "🌿";
+
+    position: absolute;
+
+    font-size: 40px;
+
+    top: -25px;
+    left: -20px;
+
+    animation: leaf 2s ease-in-out infinite;
+}
+
+@keyframes leaf {
+
+    0% {
+        transform: rotate(-10deg);
+    }
+
+    50% {
+        transform: rotate(10deg);
+    }
+
+    100% {
+        transform: rotate(-10deg);
+    }
+}
